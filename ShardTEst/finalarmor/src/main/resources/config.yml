@@ -1,0 +1,645 @@
+settings:
+  # Currency item settings
+  currency:
+    material: AMETHYST_SHARD
+    custom_model_data: 1001
+    enchanted:
+      material: AMETHYST_SHARD
+      custom_model_data: 1002
+      conversion_rate: 10  # Regular shards needed for 1 enchanted shard
+
+  # Message settings
+  messages:
+    enabled: true
+    prefix: "§8[§bShards§8]"
+    shard_gain: "%prefix% §a+%amount% shards!"
+    insufficient_shards: "%prefix% §cYou don't have enough shards!"
+    purchase_success: "%prefix% §aYou purchased %item%!"
+    error_occurred: "%prefix% §cAn error occurred while processing your purchase."
+    balance: "%prefix% §aYou have %amount% shards!"
+    give_shards_sender: "%prefix% §aGave %amount% shards to %player%"
+    give_shards_receiver: "%prefix% §aYou received %amount% shards!"
+    player_not_found: "%prefix% §cPlayer not found!"
+    no_permission: "%prefix% §cYou don't have permission to use this command!"
+    invalid_amount: "%prefix% §cInvalid amount!"
+    cannot_drop_armor: "%prefix% §cYou cannot drop special armor pieces!"
+    cannot_drop_pickaxe: "%prefix% §cYou cannot drop special pickaxes!"
+    enchanted_shard_purchase: "%prefix% §aYou converted %regular% regular shards into %enchanted% enchanted shards!"
+
+  # GUI settings
+  gui:
+    title: "Equipment Shop - Page %page%"
+    size: 54  # 6 rows of 9 slots
+    # Fill empty slots with this item (optional)
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+    navigation:
+      previous_page:
+        slot: 45
+        material: ARROW
+        name: "§e← Previous Page"
+      next_page:
+        slot: 53
+        material: ARROW
+        name: "§e→ Next Page"
+      info:
+        slot: 49
+        material: BOOK
+        name: "§ePage %page%/%total%"
+    enchanted_shard:
+      slot: 4
+      material: AMETHYST_SHARD
+      custom_model_data: 1002
+      name: "§d✨ Enchanted Shard"
+      lore:
+        - "§7A mystical shard infused with"
+        - "§7magical properties."
+        - ""
+        - "§7Cost: §e10 regular shards"
+        - ""
+        - "§dClick to convert regular shards"
+        - "§dinto enchanted shards!"
+
+  # Blocks that drop shards when broken
+  shard_blocks:
+    DIAMOND_ORE:
+      amount: 5
+      commands:
+        - "give %player% minecraft:diamond 1"
+        - "effect give %player% minecraft:haste 30 1"
+    EMERALD_ORE:
+      amount: 4
+      commands:
+        - "give %player% minecraft:emerald 1"
+        - "effect give %player% minecraft:luck 30 1"
+    GOLD_ORE:
+      amount: 3
+      commands:
+        - "give %player% minecraft:raw_gold 1"
+    IRON_ORE:
+      amount: 2
+      commands:
+        - "give %player% minecraft:raw_iron 1"
+    COAL_ORE:
+      amount: 1
+      commands:
+        - "give %player% minecraft:coal 1"
+
+armor_sets:
+  # Basic Miner Set (Tier 1 - No requirements)
+  MINER:
+    name: "Miner's Armor"
+    page: 1
+    tier: 1
+    slots:
+      helmet: 10
+      chestplate: 19
+      leggings: 28
+      boots: 37
+    cost:
+      helmet: 100
+      chestplate: 150
+      leggings: 125
+      boots: 75
+    pieces:
+      helmet:
+        multiplier: 1.1
+        rolls: 1
+      chestplate:
+        multiplier: 1.2
+        rolls: 1
+      leggings:
+        multiplier: 1.15
+        rolls: 1
+      boots:
+        multiplier: 1.1
+        rolls: 1
+    gui:
+      helmet:
+        material: DIAMOND_HELMET
+        display_name: "§6⛏ Miner's Helmet"
+        custom_model_data: 1001
+        lore:
+          - "§7A sturdy helmet for mining"
+          - "§7Provides night vision underground"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+10% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+      chestplate:
+        material: DIAMOND_CHESTPLATE
+        display_name: "§6⛏ Miner's Chestplate"
+        custom_model_data: 1002
+        lore:
+          - "§7Reinforced for cave exploration"
+          - "§7Extra protection against falling rocks"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+20% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+      leggings:
+        material: DIAMOND_LEGGINGS
+        display_name: "§6⛏ Miner's Leggings"
+        custom_model_data: 1003
+        lore:
+          - "§7Flexible yet durable"
+          - "§7Perfect for long mining sessions"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+15% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+      boots:
+        material: DIAMOND_BOOTS
+        display_name: "§6⛏ Miner's Boots"
+        custom_model_data: 1004
+        lore:
+          - "§7Steel-toed boots"
+          - "§7Prevents stubbed toes on rocks"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+10% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+    armor:
+      helmet:
+        material: DIAMOND_HELMET
+        display_name: "§6⛏ Miner's Helmet"
+        custom_model_data: 1001
+        lore:
+          - "§7A sturdy helmet for mining"
+          - "§7Provides night vision underground"
+      chestplate:
+        material: DIAMOND_CHESTPLATE
+        display_name: "§6⛏ Miner's Chestplate"
+        custom_model_data: 1002
+        lore:
+          - "§7Reinforced for cave exploration"
+          - "§7Extra protection against falling rocks"
+      leggings:
+        material: DIAMOND_LEGGINGS
+        display_name: "§6⛏ Miner's Leggings"
+        custom_model_data: 1003
+        lore:
+          - "§7Flexible yet durable"
+          - "§7Perfect for long mining sessions"
+      boots:
+        material: DIAMOND_BOOTS
+        display_name: "§6⛏ Miner's Boots"
+        custom_model_data: 1004
+        lore:
+          - "§7Steel-toed boots"
+          - "§7Prevents stubbed toes on rocks"
+
+  # Forest Guardian Set (Tier 2 - Requires Miner's Set)
+  FOREST_GUARDIAN:
+    name: "Forest Guardian's Armor"
+    page: 1
+    tier: 2
+    requires: "MINER"
+    slots:
+      helmet: 11
+      chestplate: 20
+      leggings: 29
+      boots: 38
+    cost:
+      helmet: 200
+      chestplate: 300
+      leggings: 250
+      boots: 150
+    pieces:
+      helmet:
+        multiplier: 1.25
+        rolls: 1
+      chestplate:
+        multiplier: 1.35
+        rolls: 2
+      leggings:
+        multiplier: 1.3
+        rolls: 1
+      boots:
+        multiplier: 1.25
+        rolls: 1
+    gui:
+      helmet:
+        material: LEATHER_HELMET
+        display_name: "§2🌳 Forest Guardian's Hood"
+        custom_model_data: 2001
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Blends with the forest canopy"
+          - "§7Enchanted with nature's blessing"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+25% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+      chestplate:
+        material: LEATHER_CHESTPLATE
+        display_name: "§2🌳 Forest Guardian's Tunic"
+        custom_model_data: 2002
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Woven from enchanted leaves"
+          - "§7Provides camouflage in forests"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+35% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      leggings:
+        material: LEATHER_LEGGINGS
+        display_name: "§2🌳 Forest Guardian's Leggings"
+        custom_model_data: 2003
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Light as a feather"
+          - "§7Perfect for forest traversal"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+30% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+      boots:
+        material: LEATHER_BOOTS
+        display_name: "§2🌳 Forest Guardian's Boots"
+        custom_model_data: 2004
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Silent steps through the woods"
+          - "§7Leaves no footprints"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+25% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+    armor:
+      helmet:
+        material: LEATHER_HELMET
+        display_name: "§2🌳 Forest Guardian's Hood"
+        custom_model_data: 2001
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Blends with the forest canopy"
+          - "§7Enchanted with nature's blessing"
+      chestplate:
+        material: LEATHER_CHESTPLATE
+        display_name: "§2🌳 Forest Guardian's Tunic"
+        custom_model_data: 2002
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Woven from enchanted leaves"
+          - "§7Provides camouflage in forests"
+      leggings:
+        material: LEATHER_LEGGINGS
+        display_name: "§2🌳 Forest Guardian's Leggings"
+        custom_model_data: 2003
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Light as a feather"
+          - "§7Perfect for forest traversal"
+      boots:
+        material: LEATHER_BOOTS
+        display_name: "§2🌳 Forest Guardian's Boots"
+        custom_model_data: 2004
+        color:
+          red: 34
+          green: 139
+          blue: 34
+        lore:
+          - "§7Silent steps through the woods"
+          - "§7Leaves no footprints"
+
+  # Nether King Set (Tier 3 - Requires Forest Guardian Set)
+  NETHER_KING:
+    name: "Nether King's Armor"
+    page: 1
+    tier: 3
+    requires: "FOREST_GUARDIAN"
+    slots:
+      helmet: 12
+      chestplate: 21
+      leggings: 30
+      boots: 39
+    cost:
+      helmet: 400
+      chestplate: 600
+      leggings: 500
+      boots: 300
+    pieces:
+      helmet:
+        multiplier: 1.5
+        rolls: 2
+      chestplate:
+        multiplier: 1.75
+        rolls: 2
+      leggings:
+        multiplier: 1.6
+        rolls: 2
+      boots:
+        multiplier: 1.5
+        rolls: 1
+    gui:
+      helmet:
+        material: NETHERITE_HELMET
+        display_name: "§4👑 Nether King's Crown"
+        custom_model_data: 3001
+        lore:
+          - "§7Forged in ancient fire"
+          - "§7Commands respect from Piglins"
+          - "§4§lInfused with hellfire"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+50% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      chestplate:
+        material: NETHERITE_CHESTPLATE
+        display_name: "§4👑 Nether King's Platemail"
+        custom_model_data: 3002
+        lore:
+          - "§7Tempered in lava streams"
+          - "§7Radiates intense heat"
+          - "§4§lBurns attackers"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+75% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      leggings:
+        material: NETHERITE_LEGGINGS
+        display_name: "§4👑 Nether King's Greaves"
+        custom_model_data: 3003
+        lore:
+          - "§7Crafted from pure netherite"
+          - "§7Allows walking on lava"
+          - "§4§lInfernal protection"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+60% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      boots:
+        material: NETHERITE_BOOTS
+        display_name: "§4👑 Nether King's Sabatons"
+        custom_model_data: 3004
+        lore:
+          - "§7Blessed by the Nether"
+          - "§7Leaves burning footprints"
+          - "§4§lUntouchable by fire"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+50% Shard Drop Rate"
+          - "§e+0 Extra Rolls"
+    armor:
+      helmet:
+        material: NETHERITE_HELMET
+        display_name: "§4👑 Nether King's Crown"
+        custom_model_data: 3001
+        lore:
+          - "§7Forged in ancient fire"
+          - "§7Commands respect from Piglins"
+          - "§4§lInfused with hellfire"
+      chestplate:
+        material: NETHERITE_CHESTPLATE
+        display_name: "§4👑 Nether King's Platemail"
+        custom_model_data: 3002
+        lore:
+          - "§7Tempered in lava streams"
+          - "§7Radiates intense heat"
+          - "§4§lBurns attackers"
+      leggings:
+        material: NETHERITE_LEGGINGS
+        display_name: "§4👑 Nether King's Greaves"
+        custom_model_data: 3003
+        lore:
+          - "§7Crafted from pure netherite"
+          - "§7Allows walking on lava"
+          - "§4§lInfernal protection"
+      boots:
+        material: NETHERITE_BOOTS
+        display_name: "§4👑 Nether King's Sabatons"
+        custom_model_data: 3004
+        lore:
+          - "§7Blessed by the Nether"
+          - "§7Leaves burning footprints"
+          - "§4§lUntouchable by fire"
+
+  # Void Armor Set (Tier 4 - Requires Nether King Set)
+  VOID:
+    name: "Void Armor"
+    page: 1
+    tier: 4
+    requires: "NETHER_KING"
+    slots:
+      helmet: 13
+      chestplate: 22
+      leggings: 31
+      boots: 40
+    cost_enchanted:
+      helmet: 5
+      chestplate: 8
+      leggings: 7
+      boots: 4
+    pieces:
+      helmet:
+        multiplier: 2.0
+        rolls: 2
+      chestplate:
+        multiplier: 2.5
+        rolls: 3
+      leggings:
+        multiplier: 2.25
+        rolls: 2
+      boots:
+        multiplier: 2.0
+        rolls: 2
+    gui:
+      helmet:
+        material: NETHERITE_HELMET
+        display_name: "§5⚫ Void Walker's Crown"
+        custom_model_data: 5001
+        lore:
+          - "§7Forged in the depths of the void"
+          - "§7Grants vision in absolute darkness"
+          - "§5§lVoid-touched"
+          - ""
+          - "§d§lCost: §5✨ 5 Enchanted Shards"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+100% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      chestplate:
+        material: NETHERITE_CHESTPLATE
+        display_name: "§5⚫ Void Walker's Embrace"
+        custom_model_data: 5002
+        lore:
+          - "§7Pulsing with void energy"
+          - "§7Protects against the unknown"
+          - "§5§lVoid-infused"
+          - ""
+          - "§d§lCost: §5✨ 8 Enchanted Shards"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+150% Shard Drop Rate"
+          - "§e+2 Extra Rolls"
+      leggings:
+        material: NETHERITE_LEGGINGS
+        display_name: "§5⚫ Void Walker's Stride"
+        custom_model_data: 5003
+        lore:
+          - "§7Woven from pure darkness"
+          - "§7Allows walking through shadows"
+          - "§5§lVoid-blessed"
+          - ""
+          - "§d§lCost: §5✨ 7 Enchanted Shards"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+125% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+      boots:
+        material: NETHERITE_BOOTS
+        display_name: "§5⚫ Void Walker's Steps"
+        custom_model_data: 5004
+        lore:
+          - "§7Touched by the void itself"
+          - "§7Leaves trails of darkness"
+          - "§5§lVoid-bound"
+          - ""
+          - "§d§lCost: §5✨ 4 Enchanted Shards"
+          - ""
+          - "§6Piece Bonus:"
+          - "§e+100% Shard Drop Rate"
+          - "§e+1 Extra Roll"
+    armor:
+      helmet:
+        material: NETHERITE_HELMET
+        display_name: "§5⚫ Void Walker's Crown"
+        custom_model_data: 5001
+        lore:
+          - "§7Forged in the depths of the void"
+          - "§7Grants vision in absolute darkness"
+          - "§5§lVoid-touched"
+      chestplate:
+        material: NETHERITE_CHESTPLATE
+        display_name: "§5⚫ Void Walker's Embrace"
+        custom_model_data: 5002
+        lore:
+          - "§7Pulsing with void energy"
+          - "§7Protects against the unknown"
+          - "§5§lVoid-infused"
+      leggings:
+        material: NETHERITE_LEGGINGS
+        display_name: "§5⚫ Void Walker's Stride"
+        custom_model_data: 5003
+        lore:
+          - "§7Woven from pure darkness"
+          - "§7Allows walking through shadows"
+          - "§5§lVoid-blessed"
+      boots:
+        material: NETHERITE_BOOTS
+        display_name: "§5⚫ Void Walker's Steps"
+        custom_model_data: 5004
+        lore:
+          - "§7Touched by the void itself"
+          - "§7Leaves trails of darkness"
+          - "§5§lVoid-bound"
+
+pickaxes:
+  # Basic Miner's Pickaxe (Tier 1 - No requirements)
+  BASIC_MINER:
+    name: "Basic Miner's Pickaxe"
+    multiplier: 1.2
+    rolls: 1
+    page: 2
+    tier: 1
+    slot: 10
+    cost: 200
+    gui:
+      material: IRON_PICKAXE
+      display_name: "§7⛏ Basic Miner's Pickaxe"
+      custom_model_data: 4001
+      lore:
+        - "§7A simple but reliable tool"
+        - "§7Perfect for beginners"
+        - ""
+        - "§6Bonus: §e+20% Shard Drop Rate"
+        - "§6Extra Roll: §e1x"
+    item:
+      material: IRON_PICKAXE
+      display_name: "§7⛏ Basic Miner's Pickaxe"
+      custom_model_data: 4001
+      lore:
+        - "§7A simple but reliable tool"
+        - "§7Perfect for beginners"
+
+  # Gem Hunter's Pickaxe (Tier 2 - Requires Basic Miner's Pickaxe)
+  GEM_HUNTER:
+    name: "Gem Hunter's Pickaxe"
+    multiplier: 1.5
+    rolls: 2
+    page: 2
+    tier: 2
+    requires: "BASIC_MINER"
+    slot: 11
+    cost: 400
+    gui:
+      material: DIAMOND_PICKAXE
+      display_name: "§b💎 Gem Hunter's Pickaxe"
+      custom_model_data: 4002
+      lore:
+        - "§7Specially designed for gem mining"
+        - "§7Increased luck with precious stones"
+        - ""
+        - "§6Bonus: §e+50% Shard Drop Rate"
+        - "§6Extra Rolls: §e2x"
+    item:
+      material: DIAMOND_PICKAXE
+      display_name: "§b💎 Gem Hunter's Pickaxe"
+      custom_model_data: 4002
+      lore:
+        - "§7Specially designed for gem mining"
+        - "§7Increased luck with precious stones"
+
+  # Hellforge Pickaxe (Tier 3 - Requires Gem Hunter's Pickaxe)
+  HELLFORGE:
+    name: "Hellforge Pickaxe"
+    multiplier: 2.0
+    rolls: 3
+    page: 2
+    tier: 3
+    requires: "GEM_HUNTER"
+    slot: 12
+    cost: 800
+    gui:
+      material: NETHERITE_PICKAXE
+      display_name: "§4🔥 Hellforge Pickaxe"
+      custom_model_data: 4003
+      lore:
+        - "§7Forged in the depths of the Nether"
+        - "§7Melts through stone like butter"
+        - "§4§lInfused with hellfire"
+        - ""
+        - "§6Bonus: §e+100% Shard Drop Rate"
+        - "§6Extra Rolls: §e3x"
+    item:
+      material: NETHERITE_PICKAXE
+      display_name: "§4🔥 Hellforge Pickaxe"
+      custom_model_data: 4003
+      lore:
+        - "§7Forged in the depths of the Nether"
+        - "§7Melts through stone like butter"
+        - "§4§lInfused with hellfire"
